@@ -104,7 +104,26 @@ img {
   font-weight: 500;
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--olive);
+}
+
+.text-crumb {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--gold);
+  transition: color 250ms var(--ease-reserve);
+}
+
+.text-crumb:hover {
+  color: var(--terracotta);
+}
+
+.media-frame {
+  overflow: hidden;
+  border-radius: 1.15rem;
+  background: var(--line);
 }
 
 .text-body {
@@ -220,6 +239,7 @@ button:not(.btn) {
 
 .dish-zoom {
   overflow: hidden;
+  border-radius: 1.15rem;
 }
 
 .dish-zoom img {

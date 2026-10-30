@@ -21,19 +21,19 @@ export function InstagramMosaic() {
           </div>
           <p className="text-[var(--text-sm)] text-muted">@maisonverdant</p>
         </Reveal>
-        <div className="mx-auto grid max-w-4xl grid-cols-2 gap-2.5 sm:gap-3 md:grid-cols-3">
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
           {shots.map((src, i) => (
             <Reveal
               key={src}
               delay={i * 0.05}
-              className="dish-zoom relative aspect-square overflow-hidden rounded-xl bg-line"
+              className="media-frame dish-zoom relative aspect-[4/3] md:aspect-[5/4]"
             >
               <Image
                 src={src}
                 alt={`Maison Verdant moment ${i + 1}`}
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 40vw, 220px"
+                sizes="(max-width: 768px) 45vw, 30vw"
               />
             </Reveal>
           ))}

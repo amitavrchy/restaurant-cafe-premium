@@ -39,8 +39,8 @@ export function SiteHeader() {
               className={cn(
                 "text-[var(--text-sm)] tracking-[0.06em] transition-colors",
                 pathname === link.href || pathname.startsWith(`${link.href}/`)
-                  ? "text-ink"
-                  : "text-muted hover:text-ink",
+                  ? "text-olive"
+                  : "text-olive/65 hover:text-olive",
               )}
             >
               {link.label}

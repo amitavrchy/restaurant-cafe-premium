@@ -337,7 +337,13 @@ async function main() {
       {
         slug: 'spring-tasting-preview',
         title: 'Spring Tasting Preview',
-        body: 'Our spring tasting opens with pea velouté and ends with lemon verbena — a quiet conversation between garden and pastry.',
+        body: `This spring, the tasting returns to the garden before it returns to the plate. We begin with a cool velouté of English peas — crème fraîche folded through at the last moment, mint oil tracing a thin green ribbon, and a toasted sourdough crumb for texture you can hear.
+
+The second movement is quieter: day-boat scallops seared only on one side, set over cauliflower purée with brown butter and capers. It is the dish that taught us patience — heat, then rest, then the table.
+
+By the time lemon verbena tart arrives, the room has softened. Candied zest, crème anglaise, and a pastry shell that shatters cleanly. Wine pairing is available as a five-glass flight; ask the sommelier for the Chablis that loves the peas.
+
+Reservations for the spring tasting open each Tuesday at noon. Parties of two to six are ideal; for larger tables, inquire about the Salon.`,
         coverImage:
           'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80',
         publishedAt: new Date(),
@@ -345,7 +351,13 @@ async function main() {
       {
         slug: 'the-art-of-the-table',
         title: 'The Art of the Table',
-        body: 'Service at Maison Verdant is choreography: pacing, silence, and the soft clink of crystal between courses.',
+        body: `Service at Maison Verdant is choreography more than ceremony. We pace courses to conversation, not to a kitchen clock. Crystal is set quietly. Silver arrives only when the plate is ready. Silence between courses is intentional — a breath, not a void.
+
+Guests often ask how we train for that calm. The answer is rehearsal: every new menu is walked on an empty floor before the first seating. Servers taste every dish. Captains learn where a guest’s gaze falls when a plate lands.
+
+We believe hospitality should feel composed without feeling performed. If you need more time, we give it. If a wine feels wrong for the course, we change it without apology. The table belongs to you; we simply keep the evening in tune.
+
+Visit for dinner Tuesday through Saturday. Lunch is lighter, brighter, and just as considered.`,
         coverImage:
           'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200&q=80',
         publishedAt: new Date(),
@@ -353,7 +365,13 @@ async function main() {
       {
         slug: 'garden-to-glass',
         title: 'Garden to Glass',
-        body: 'Herbs from our courtyard inform both kitchen and bar — verbena cordial, basil oil, and thyme honey for late evenings.',
+        body: `The courtyard behind the dining room is small, but it works hard. Verbena for cordial and desserts. Basil for oil that finishes tomatoes and burrata. Thyme for honey we warm with citrus at the bar after ten.
+
+In summer we press herbs the same morning they are cut. In autumn we dry what we can and ferment the rest — a soft acidity that finds its way into dressings and low-alcohol aperitifs. Nothing ornamental; everything edible.
+
+Ask for the garden spritz: verbena, sparkling wine, a drop of bitter orange. Or the thyme old-fashioned for evenings that lean toward the fire. Both change with the week’s harvest.
+
+Tour the courtyard on request after lunch service — a short walk, a few minutes of sun, then back to the table.`,
         coverImage:
           'https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=1200&q=80',
         publishedAt: new Date(),

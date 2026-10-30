@@ -7,7 +7,7 @@ export function PrivateTeaser() {
     <section className="section-pad">
       <div className="container-wide grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
         <Reveal>
-          <div className="relative mx-auto aspect-[4/3] w-full max-w-xl overflow-hidden rounded-2xl bg-line lg:mx-0 lg:max-w-none">
+          <div className="media-frame relative mx-auto aspect-[4/3] w-full max-w-xl lg:mx-0 lg:max-w-none">
             <Image
               src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1100&q=80"
               alt="Private dining salon"

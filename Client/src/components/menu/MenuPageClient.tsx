@@ -42,7 +42,7 @@ export function MenuPageClient() {
                 key={section.id}
                 href={`#${section.slug}`}
                 className={cn(
-                  "shrink-0 rounded-full px-3.5 py-2 text-[var(--text-sm)] tracking-[0.04em] text-muted transition-colors hover:bg-line/50 hover:text-ink",
+                  "shrink-0 rounded-full px-3.5 py-2 text-[var(--text-sm)] tracking-[0.04em] text-olive/80 transition-colors hover:bg-line/50 hover:text-olive",
                 )}
               >
                 {section.title}

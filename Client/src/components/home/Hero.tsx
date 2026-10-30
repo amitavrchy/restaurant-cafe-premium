@@ -11,7 +11,7 @@ export function Hero() {
   const reduced = useReducedMotion();
 
   return (
-    <section className="relative min-h-[min(78svh,720px)] overflow-hidden md:min-h-[min(85svh,780px)]">
+    <section className="relative min-h-[min(78svh,720px)] overflow-hidden rounded-b-[1.75rem] md:min-h-[min(85svh,780px)] md:rounded-b-[2.25rem]">
       <div className="absolute inset-0">
         <Image
           src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80"

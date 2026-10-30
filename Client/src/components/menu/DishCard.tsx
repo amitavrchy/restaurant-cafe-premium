@@ -27,7 +27,7 @@ export function DishCard({ item, featured, reverse }: Props) {
           reverse ? "sm:flex-row-reverse" : ""
         }`}
       >
-        <div className="dish-zoom relative h-36 w-36 shrink-0 overflow-hidden rounded-2xl bg-line sm:h-40 sm:w-40">
+        <div className="media-frame dish-zoom relative h-36 w-36 shrink-0 sm:h-40 sm:w-40">
           <Image
             src={item.imageUrl}
             alt={item.name}
@@ -63,7 +63,7 @@ export function DishCard({ item, featured, reverse }: Props) {
   return (
     <article className="group flex gap-3.5 border-b border-line/80 pb-5 last:border-b-0 last:pb-0 md:gap-4">
       {item.imageUrl ? (
-        <div className="dish-zoom relative h-16 w-16 shrink-0 overflow-hidden rounded-xl bg-line md:h-[4.25rem] md:w-[4.25rem]">
+        <div className="media-frame dish-zoom relative h-16 w-16 shrink-0 md:h-[4.25rem] md:w-[4.25rem]">
           <Image
             src={item.imageUrl}
             alt=""

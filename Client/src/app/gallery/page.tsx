@@ -54,7 +54,7 @@ export default function GalleryPage() {
           <Reveal
             key={img.src}
             delay={i * 0.05}
-            className={`dish-zoom relative overflow-hidden bg-line ${img.span}`}
+            className={`media-frame dish-zoom relative ${img.span}`}
           >
             <Image
               src={img.src}

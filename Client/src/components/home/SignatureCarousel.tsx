@@ -84,12 +84,12 @@ export function SignatureCarousel() {
                 className="min-w-[72%] sm:min-w-[42%] lg:min-w-[28%]"
               >
                 <article className="group">
-                  <div className="dish-zoom relative h-44 w-full overflow-hidden rounded-2xl bg-line sm:h-48 lg:h-52">
+                  <div className="media-frame relative flex h-52 items-center justify-center overflow-hidden bg-[#EDE4D4] sm:h-56">
                     <Image
                       src={dish.image}
                       alt={dish.name}
                       fill
-                      className="object-cover"
+                      className="object-contain p-3 transition-transform duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
                       sizes="(max-width: 768px) 70vw, 28vw"
                     />
                   </div>

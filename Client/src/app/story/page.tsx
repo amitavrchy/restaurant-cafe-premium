@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function StoryPage() {
   return (
     <>
-      <section className="relative min-h-[70vh] overflow-hidden">
+      <section className="relative min-h-[70vh] overflow-hidden rounded-b-[1.75rem] md:rounded-b-[2.25rem]">
         <Image
           src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1800&q=85"
           alt="Chef plating in the Maison Verdant kitchen"
@@ -22,7 +22,7 @@ export default function StoryPage() {
         <div className="absolute inset-0 bg-ink/45" />
         <div className="relative container-wide flex min-h-[70vh] items-end pb-16">
           <div className="max-w-2xl text-cream">
-            <p className="text-eyebrow text-cream/70">Our story</p>
+            <p className="text-eyebrow !text-cream/75">Our story</p>
             <h1 className="heading-display mt-4 text-cream">
               A kitchen rooted in the garden
             </h1>

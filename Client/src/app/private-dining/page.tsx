@@ -29,7 +29,7 @@ const packages = [
 export default function PrivateDiningPage() {
   return (
     <div>
-      <section className="relative min-h-[55vh] overflow-hidden">
+      <section className="relative min-h-[55vh] overflow-hidden rounded-b-[1.75rem] md:rounded-b-[2.25rem]">
         <Image
           src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1800&q=85"
           alt="Private salon"
@@ -41,7 +41,7 @@ export default function PrivateDiningPage() {
         <div className="absolute inset-0 bg-ink/50" />
         <div className="relative container-wide flex min-h-[55vh] items-end pb-14">
           <div className="max-w-2xl text-cream">
-            <p className="text-eyebrow text-cream/70">Private dining</p>
+            <p className="text-eyebrow !text-cream/75">Private dining</p>
             <h1 className="heading-display mt-4 text-cream">
               Celebrate without spectacle
             </h1>
@@ -75,7 +75,7 @@ export default function PrivateDiningPage() {
               "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80",
               "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=900&q=80",
             ].map((src) => (
-              <div key={src} className="relative aspect-[4/5] overflow-hidden bg-line">
+              <div key={src} className="media-frame relative aspect-[4/5]">
                 <Image src={src} alt="" fill className="object-cover" sizes="40vw" />
               </div>
             ))}
