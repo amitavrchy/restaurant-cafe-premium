@@ -8,4 +8,14 @@ export class AppService {
       status: 'ok',
     };
   }
+
+  getHealth() {
+    return {
+      status: 'ok',
+      service: 'maison-verdant-api',
+      storage: process.env.STORAGE_MODE === 'postgres' || process.env.DATABASE_URL?.startsWith('postgresql')
+        ? 'postgres'
+        : 'unknown',
+    };
+  }
 }
