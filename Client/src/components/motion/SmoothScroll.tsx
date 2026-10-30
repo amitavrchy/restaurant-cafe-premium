@@ -1,10 +1,21 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 import { useAppSelector } from "@/store/hooks";
 
+function forceScrollTop(lenis: Lenis | null) {
+  if (lenis) {
+    lenis.scrollTo(0, { immediate: true });
+  }
+  window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+}
+
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
   const reserveOpen = useAppSelector((s) => s.ui.reserveOpen);
   const lenisRef = useRef<Lenis | null>(null);
 
@@ -15,7 +26,6 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     const lenis = new Lenis({
       duration: 1.1,
       smoothWheel: true,
-      // Nested scroll areas marked with data-lenis-prevent stay native
       prevent: (node) =>
         node instanceof HTMLElement &&
         Boolean(
@@ -38,6 +48,10 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       lenisRef.current = null;
     };
   }, []);
+
+  useEffect(() => {
+    forceScrollTop(lenisRef.current);
+  }, [pathname]);
 
   useEffect(() => {
     const lenis = lenisRef.current;
