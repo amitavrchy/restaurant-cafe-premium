@@ -1,15 +1,101 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
+enum Role {
+  GUEST
+  ADMIN
+}
+
+enum ReservationStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  NO_SHOW
+}
+
+model User {
+  id           String @id @default(cuid())
+  email        String @unique
+  passwordHash String
+  name         String
+  role         Role   @default(ADMIN)
+}
+
+model MenuSection {
+  id        String     @id @default(cuid())
+  slug      String     @unique
+  title     String
+  sortOrder Int
+  items     MenuItem[]
+}
+
+model MenuItem {
+  id          String      @id @default(cuid())
+  sectionId   String
+  section     MenuSection @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  name        String
+  description String
+  price       Float
+  dietary     String // JSON array stored as string for SQLite
+  imageUrl    String?
+  available   Boolean     @default(true)
+  sortOrder   Int         @default(0)
+}
+
+model ServicePeriod {
+  id          String @id @default(cuid())
+  name        String
+  startTime   String
+  endTime     String
+  slotMinutes Int    @default(30)
+  maxCovers   Int    @default(60)
+}
+
+model Reservation {
+  id        String            @id @default(cuid())
+  code      String            @unique @default(cuid())
+  date      DateTime
+  time      String
+  partySize Int
+  name      String
+  email     String
+  phone     String?
+  notes     String?
+  seating   String?
+  status    ReservationStatus @default(PENDING)
+  createdAt DateTime          @default(now())
+
+  @@index([date, time])
+}
+
+model PrivateInquiry {
+  id        String    @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  eventDate DateTime?
+  guests    Int?
+  message   String
+  createdAt DateTime  @default(now())
+}
+
+model Closure {
+  id     String   @id @default(cuid())
+  date   DateTime
+  reason String?
+}
+
+model JournalPost {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       String
+  body        String
+  coverImage  String?
+  publishedAt DateTime?
+}
