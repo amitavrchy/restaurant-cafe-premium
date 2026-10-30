@@ -1,26 +1,288 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cream: #f6f1e7;
+  --ink: #1a1612;
+  --olive: #3f4a3c;
+  --terracotta: #c45c3a;
+  --gold: #b08d57;
+  --line: #e5dccf;
+  --muted: #7a7368;
+
+  /* Consistent type scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-display: clamp(2.75rem, 7vw, 5.5rem);
+  --text-display-md: clamp(2.25rem, 5vw, 3.75rem);
+  --text-display-sm: clamp(1.75rem, 3.5vw, 2.75rem);
+
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-body: 1.65;
+  --tracking-display: -0.02em;
+  --tracking-wide: 0.18em;
+
+  --ease-reserve: cubic-bezier(0.22, 1, 0.36, 1);
+  --header-h: 4.5rem;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
+  --color-olive: var(--olive);
+  --color-terracotta: var(--terracotta);
+  --color-gold: var(--gold);
+  --color-line: var(--line);
+  --color-muted: var(--muted);
+  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-dm-sans);
+  --font-mono: var(--font-plex-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--terracotta) 28%, transparent);
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.font-display {
+  font-family: var(--font-cormorant), Georgia, serif;
+  letter-spacing: var(--tracking-display);
+}
+
+.font-mono-price {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.text-eyebrow {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.text-body {
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  color: var(--muted);
+}
+
+.text-body-lg {
+  font-size: var(--text-lg);
+  line-height: var(--leading-body);
+  color: var(--muted);
+}
+
+.heading-display {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: var(--text-display);
+  line-height: var(--leading-tight);
+  font-weight: 500;
+  letter-spacing: var(--tracking-display);
+  color: var(--ink);
+}
+
+.heading-xl {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: var(--text-display-md);
+  line-height: var(--leading-tight);
+  font-weight: 500;
+  letter-spacing: var(--tracking-display);
+}
+
+.heading-lg {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: var(--text-display-sm);
+  line-height: var(--leading-snug);
+  font-weight: 500;
+}
+
+.heading-md {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: var(--text-2xl);
+  line-height: var(--leading-snug);
+  font-weight: 500;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.75rem 1.5rem;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  transition:
+    background-color 350ms var(--ease-reserve),
+    color 350ms var(--ease-reserve),
+    border-color 350ms var(--ease-reserve),
+    transform 350ms var(--ease-reserve);
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--terracotta);
+  color: var(--cream);
+}
+
+.btn-primary:hover {
+  background: color-mix(in srgb, var(--terracotta) 88%, var(--ink));
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.btn-ghost:hover {
+  border-color: var(--ink);
+}
+
+.btn-ink {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.btn-ink:hover {
+  background: var(--olive);
+}
+
+.container-page {
+  width: min(1120px, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+.container-wide {
+  width: min(1280px, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+.section-pad {
+  padding-block: clamp(4rem, 10vw, 7.5rem);
+}
+
+.dish-zoom {
+  overflow: hidden;
+}
+
+.dish-zoom img {
+  transition: transform 800ms var(--ease-reserve);
+  will-change: transform;
+}
+
+.dish-zoom:hover img {
+  transform: scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .dish-zoom:hover img {
+    transform: none;
+  }
+}
+
+/* Day picker */
+.rdp-root {
+  --rdp-accent-color: var(--terracotta);
+  --rdp-accent-background-color: color-mix(in srgb, var(--terracotta) 14%, var(--cream));
+  font-size: var(--text-sm);
+}
+
+.mobile-reserve-bar {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 40;
+  display: flex;
+  padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
+  background: color-mix(in srgb, var(--cream) 92%, transparent);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--line);
+}
+
+@media (min-width: 768px) {
+  .mobile-reserve-bar {
+    display: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
