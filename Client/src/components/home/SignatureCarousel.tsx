@@ -51,9 +51,13 @@ export function SignatureCarousel() {
     <section className="section-pad bg-cream">
       <div className="container-wide">
         <Reveal className="flex items-end justify-between gap-6">
-          <div>
+          <div className="max-w-xl">
             <p className="text-eyebrow">Signatures</p>
             <h2 className="heading-xl mt-3">Plates we return to</h2>
+            <p className="text-body mt-3">
+              A few compositions that stay on the menu through seasons — refined,
+              never static. Ask for tonight’s pairing notes.
+            </p>
           </div>
           <div className="hidden gap-2 sm:flex">
             <button

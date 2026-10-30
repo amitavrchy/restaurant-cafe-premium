@@ -4,6 +4,19 @@ import { Reveal } from "@/components/motion/Reveal";
 
 const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII"];
 
+const CHAPTER_COPY: Record<string, string> = {
+  lunch:
+    "Brighter plates for midday — soups, salads, and composed mains that still feel considered. Ideal before a walk through Le Marais.",
+  dinner:
+    "The evening narrative: seafood, slow meats, and pastry that closes without heaviness. Order à la carte or ask about the tasting.",
+  tasting:
+    "A composed sequence written weekly. Best shared by the full table so pacing and pairings stay aligned.",
+  cafe:
+    "All-day counter energy — espresso, tartines, and small sweets until the room shifts toward dinner.",
+  wine:
+    "By the glass and half-bottle. Pairings for tasting are available; ask for the printed bottle list.",
+};
+
 type Props = {
   section: MenuSection;
   index: number;
@@ -14,6 +27,7 @@ export function MenuChapter({ section, index }: Props) {
   const [featured, ...rest] = section.items;
   const roman = ROMAN[index] ?? String(index + 1);
   const tinted = index % 2 === 1;
+  const blurb = CHAPTER_COPY[section.slug];
 
   return (
     <section
@@ -26,12 +40,13 @@ export function MenuChapter({ section, index }: Props) {
     >
       <Reveal>
         <div className="flex flex-wrap items-end justify-between gap-4 border-b border-line pb-6">
-          <div>
+          <div className="max-w-2xl">
             <p className="text-eyebrow">
               Chapter {roman}
             </p>
             <h2 className="heading-xl mt-2">{section.title}</h2>
             <div className="menu-chapter-rule" />
+            {blurb ? <p className="text-body mt-4 max-w-xl">{blurb}</p> : null}
           </div>
           <p className="max-w-xs text-right text-[var(--text-sm)] text-muted">
             {isWine

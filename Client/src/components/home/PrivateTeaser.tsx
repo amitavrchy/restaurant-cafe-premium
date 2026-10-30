@@ -24,7 +24,13 @@ export function PrivateTeaser() {
           </h2>
           <p className="text-body-lg mt-5 max-w-md">
             The Salon hosts eight to twenty-four guests — tasting menus, wine
-            flights, and service paced to your evening.
+            flights, and service paced to your evening rather than the kitchen
+            clock.
+          </p>
+          <p className="text-body mt-4 max-w-md">
+            Birthdays, partnerships, reunions, and quiet corporate dinners are
+            welcome. Share a date and we will send a written proposal within two
+            business days.
           </p>
           <Link href="/private-dining" className="btn btn-ink mt-8">
             Plan an event

@@ -14,10 +14,15 @@ export function InstagramMosaic() {
   return (
     <section className="section-pad pt-0">
       <div className="container-wide">
-        <Reveal className="mb-8 flex items-end justify-between gap-4">
-          <div>
+        <Reveal className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-xl">
             <p className="text-eyebrow">Atelier</p>
             <h2 className="heading-xl mt-3">From the house</h2>
+            <p className="text-body mt-4">
+              Plates mid-service, espresso before noon, and the courtyard after
+              rain — a living sketchbook of Maison Verdant. Follow along at
+              @maisonverdant.
+            </p>
           </div>
           <p className="text-[var(--text-sm)] text-muted">@maisonverdant</p>
         </Reveal>

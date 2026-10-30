@@ -376,6 +376,34 @@ Tour the courtyard on request after lunch service — a short walk, a few minute
           'https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=1200&q=80',
         publishedAt: new Date(),
       },
+      {
+        slug: 'how-we-source',
+        title: 'How We Source',
+        body: `We keep the radius short when we can. Fish arrives from day boats on the Atlantic coast. Herbs and greens come from growers within a day’s drive of Paris. Dairy is chosen for clarity, not richness alone.
+
+When something travels farther — citrus in winter, certain spices — we buy less and use it with more intent. Fermentation fills the gaps: pickles, vinegars, and soft cheeses aged in-house.
+
+Guests sometimes ask for a “local only” tasting. We can come close in late spring and summer. In deep winter we are honest about distance and focus on technique instead.
+
+If you have a producer you love, tell your captain. We are always listening for the next small farm or bakery that fits the house.`,
+        coverImage:
+          'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=1200&q=80',
+        publishedAt: new Date(),
+      },
+      {
+        slug: 'a-note-on-pacing',
+        title: 'A Note on Pacing',
+        body: `An evening here is meant to last. We do not turn tables on a hard clock. Courses arrive when conversation allows a pause — usually two and a half to three hours for a full tasting.
+
+If you have a theatre curtain or a train, tell us when you book. We will compose a shorter sequence without making the kitchen feel hurried.
+
+Silence between plates is intentional. It is not forgetfulness. If you prefer a faster cadence, a quiet word to the captain is enough.
+
+We hold reservations for fifteen minutes. After that the table returns to the floor so another table can begin their evening on time.`,
+        coverImage:
+          'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80',
+        publishedAt: new Date(),
+      },
     ],
   });
 

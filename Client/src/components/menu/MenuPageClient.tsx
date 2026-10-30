@@ -62,8 +62,14 @@ export function MenuPageClient() {
             An evening composed like a tasting menu
           </h1>
           <p className="text-body-lg mt-5 max-w-xl">
-            Lunch through late wine — each chapter paced for the table. Marks: V
-            vegetarian · VG vegan · GF gluten free.
+            Lunch through late wine — five chapters paced for the table. Dishes
+            change with the market; dietary marks stay consistent: V vegetarian ·
+            VG vegan · GF gluten free.
+          </p>
+          <p className="text-body mt-4 max-w-xl">
+            Ask your captain about pairings. The tasting chapter can be ordered
+            for the full table; wine flights are composed by the sommelier the
+            same afternoon.
           </p>
           <button
             type="button"

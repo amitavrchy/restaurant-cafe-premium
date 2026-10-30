@@ -38,8 +38,9 @@ export function Hero() {
           <h1 className="mt-5 max-w-2xl font-display text-[clamp(1.5rem,3.5vw,2.35rem)] font-normal leading-snug !text-cream/90">
             An evening composed like a tasting menu.
           </h1>
-          <p className="mt-5 max-w-md text-[var(--text-base)] leading-[var(--leading-body)] text-cream/75">
-            Fine dining after dusk. All-day café until the light softens.
+          <p className="mt-5 max-w-md text-[var(--text-base)] leading-[var(--leading-body)] !text-cream/80">
+            Fine dining after dusk. All-day café until the light softens. Seasonal
+            menus, a quiet cellar, and service paced to your table.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <button

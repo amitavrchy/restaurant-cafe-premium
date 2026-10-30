@@ -18,11 +18,15 @@ export function Newsletter() {
           <p className="text-eyebrow">Correspondence</p>
           <h2 className="heading-xl mt-3">Seasonal notes from the kitchen</h2>
           <p className="text-body mt-4">
-            Menus, late openings, and private dining dates — rarely more than once a month.
+            Menu changes, late openings, courtyard harvests, and private dining
+            dates — rarely more than once a month, never clutter.
+          </p>
+          <p className="mt-3 text-[var(--text-sm)] text-muted">
+            Unsubscribe anytime. We do not share your address.
           </p>
           {done ? (
             <p className="mt-8 text-[var(--text-base)] text-olive" role="status">
-              Thank you — you are on the list.
+              Thank you — you are on the list. Watch for the next seasonal note.
             </p>
           ) : (
             <form
