@@ -1,11 +1,21 @@
+import { ChefQuote } from "@/components/home/ChefQuote";
+import { Hero } from "@/components/home/Hero";
+import { HoursLocation } from "@/components/home/HoursLocation";
+import { InstagramMosaic } from "@/components/home/InstagramMosaic";
+import { Newsletter } from "@/components/home/Newsletter";
+import { PrivateTeaser } from "@/components/home/PrivateTeaser";
+import { SignatureCarousel } from "@/components/home/SignatureCarousel";
+
 export default function Home() {
   return (
-    <section className="container-page section-pad">
-      <p className="text-eyebrow">Maison Verdant</p>
-      <h1 className="heading-display mt-4">An evening composed like a tasting menu.</h1>
-      <p className="text-body-lg mt-6 max-w-xl">
-        Design system and site chrome are live. Full home experience arrives next.
-      </p>
-    </section>
+    <>
+      <Hero />
+      <SignatureCarousel />
+      <ChefQuote />
+      <HoursLocation />
+      <PrivateTeaser />
+      <InstagramMosaic />
+      <Newsletter />
+    </>
   );
 }
