@@ -14,12 +14,12 @@ const images = [
     span: "md:col-span-2 md:row-span-2",
   },
   {
-    src: "https://images.unsplash.com/photo-1550963211-0af174c8cb1b?w=1000&q=80",
+    src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1000&q=80",
     alt: "Dining room",
     span: "",
   },
   {
-    src: "https://images.unsplash.com/photo-1510817742738-060be7c38f3d?w=1000&q=80",
+    src: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1000&q=80",
     alt: "Wine pour",
     span: "",
   },

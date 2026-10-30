@@ -9,7 +9,7 @@ export function PrivateTeaser() {
         <Reveal>
           <div className="relative aspect-[4/5] overflow-hidden bg-line">
             <Image
-              src="https://images.unsplash.com/photo-1550963211-0af174c8cb1b?w=1400&q=80"
+              src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1400&q=80"
               alt="Private dining salon"
               fill
               className="object-cover"

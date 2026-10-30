@@ -2,6 +2,11 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service.js';
 import { CreateClosureDto, UpdateClosureDto } from './dto/closure.dto.js';
 
+function utcDateOnly(dateStr: string) {
+  const [y, m, d] = dateStr.split('-').map(Number);
+  return new Date(Date.UTC(y, m - 1, d));
+}
+
 @Injectable()
 export class ClosuresService {
   constructor(private readonly prisma: PrismaService) {}
@@ -13,7 +18,7 @@ export class ClosuresService {
   create(dto: CreateClosureDto) {
     return this.prisma.closure.create({
       data: {
-        date: new Date(`${dto.date}T00:00:00.000Z`),
+        date: utcDateOnly(dto.date),
         reason: dto.reason,
       },
     });
@@ -24,7 +29,7 @@ export class ClosuresService {
     return this.prisma.closure.update({
       where: { id },
       data: {
-        ...(dto.date ? { date: new Date(`${dto.date}T00:00:00.000Z`) } : {}),
+        ...(dto.date ? { date: utcDateOnly(dto.date) } : {}),
         ...(dto.reason !== undefined ? { reason: dto.reason } : {}),
       },
     });

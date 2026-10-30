@@ -15,6 +15,13 @@ function parseDateOnly(dateStr: string): Date {
   return new Date(Date.UTC(y, m - 1, d));
 }
 
+function dayRange(dateStr: string) {
+  const start = parseDateOnly(dateStr);
+  const end = new Date(start);
+  end.setUTCDate(end.getUTCDate() + 1);
+  return { start, end };
+}
+
 function timeToMinutes(time: string): number {
   const [h, m] = time.split(':').map(Number);
   return h * 60 + m;
@@ -35,8 +42,10 @@ export class ReservationsService {
       throw new BadRequestException('date must be YYYY-MM-DD');
     }
 
-    const date = parseDateOnly(dateStr);
-    const closure = await this.prisma.closure.findFirst({ where: { date } });
+    const { start, end } = dayRange(dateStr);
+    const closure = await this.prisma.closure.findFirst({
+      where: { date: { gte: start, lt: end } },
+    });
     if (closure) {
       return {
         date: dateStr,
@@ -57,14 +66,14 @@ export class ReservationsService {
 
     const reservations = await this.prisma.reservation.findMany({
       where: {
-        date,
+        date: { gte: start, lt: end },
         status: { in: activeStatuses },
       },
     });
 
     const slots = periods.flatMap((period) => {
-      const start = timeToMinutes(period.startTime);
-      const end = timeToMinutes(period.endTime);
+      const periodStart = timeToMinutes(period.startTime);
+      const periodEnd = timeToMinutes(period.endTime);
       const result: Array<{
         time: string;
         period: string;
@@ -74,7 +83,7 @@ export class ReservationsService {
         available: boolean;
       }> = [];
 
-      for (let t = start; t < end; t += period.slotMinutes) {
+      for (let t = periodStart; t < periodEnd; t += period.slotMinutes) {
         const time = minutesToTime(t);
         const booked = reservations
           .filter((r) => r.time === time)
@@ -127,7 +136,6 @@ export class ReservationsService {
       },
     });
 
-    // Email confirmation stub
     console.log(
       `[email-stub] Reservation confirmed ${reservation.code} → ${reservation.email} on ${dto.date} at ${dto.time} for ${dto.partySize}`,
     );

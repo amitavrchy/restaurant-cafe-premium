@@ -19,7 +19,7 @@ const dishes = [
     note: "Blood orange · endive",
     price: 48,
     image:
-      "https://images.unsplash.com/photo-1432139509613-5c619acf891c?w=1200&q=80",
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=80",
   },
   {
     name: "Wild Mushroom Risotto",

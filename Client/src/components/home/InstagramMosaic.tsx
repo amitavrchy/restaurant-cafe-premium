@@ -3,7 +3,7 @@ import { Reveal } from "@/components/motion/Reveal";
 
 const shots = [
   "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80",
-  "https://images.unsplash.com/photo-1510817742738-060be7c38f3d?w=900&q=80",
+  "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=900&q=80",
   "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=900&q=80",
   "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=900&q=80",
   "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&q=80",

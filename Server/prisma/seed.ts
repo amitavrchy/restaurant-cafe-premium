@@ -116,7 +116,7 @@ async function main() {
           dietary: ['GLUTEN_FREE'],
           sortOrder: 2,
           imageUrl:
-            'https://images.unsplash.com/photo-1432139509613-5c619acf891c?w=1200&q=80',
+            'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=80',
         },
         {
           name: 'Dry-Aged Ribeye',
@@ -177,7 +177,7 @@ async function main() {
           dietary: ['NONE'],
           sortOrder: 2,
           imageUrl:
-            'https://images.unsplash.com/photo-1550963211-0af174c8cb1b?w=1200&q=80',
+            'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80',
         },
         {
           name: 'Vegetarian Tasting',
@@ -195,7 +195,7 @@ async function main() {
           dietary: ['VEGAN'],
           sortOrder: 4,
           imageUrl:
-            'https://images.unsplash.com/photo-1510817742738-060be7c38f3d?w=1200&q=80',
+            'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1200&q=80',
         },
       ],
     },
@@ -319,17 +319,18 @@ async function main() {
     }
   }
 
-  const nextMonth = new Date();
-  nextMonth.setMonth(nextMonth.getMonth() + 1);
-  nextMonth.setDate(1);
-  nextMonth.setHours(0, 0, 0, 0);
+  const now = new Date();
+  const closureDate = new Date(
+    Date.UTC(now.getFullYear(), now.getMonth() + 1, 1),
+  );
 
   await prisma.closure.create({
     data: {
-      date: nextMonth,
+      date: closureDate,
       reason: 'Private staff development day',
     },
   });
+
 
   await prisma.journalPost.createMany({
     data: [

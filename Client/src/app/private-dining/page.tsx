@@ -31,7 +31,7 @@ export default function PrivateDiningPage() {
     <div>
       <section className="relative min-h-[55vh] overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1550963211-0af174c8cb1b?w=1800&q=85"
+          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1800&q=85"
           alt="Private salon"
           fill
           priority
@@ -73,7 +73,7 @@ export default function PrivateDiningPage() {
           <div className="mt-10 grid grid-cols-2 gap-3">
             {[
               "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80",
-              "https://images.unsplash.com/photo-1510817742738-060be7c38f3d?w=900&q=80",
+              "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=900&q=80",
             ].map((src) => (
               <div key={src} className="relative aspect-[4/5] overflow-hidden bg-line">
                 <Image src={src} alt="" fill className="object-cover" sizes="40vw" />

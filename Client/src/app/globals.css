@@ -286,3 +286,7 @@ img {
     transform: translateX(0);
   }
 }
+
+[data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
