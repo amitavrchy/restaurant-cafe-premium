@@ -14,6 +14,9 @@ RUN apt-get update \
 
 WORKDIR /app/Server
 
+# Prisma config requires DATABASE_URL even at generate/build time
+ENV DATABASE_URL=postgresql://postgres:postgres@127.0.0.1:5432/maison_verdant
+
 COPY package.json package-lock.json ./
 COPY prisma ./prisma
 COPY prisma.config.ts ./

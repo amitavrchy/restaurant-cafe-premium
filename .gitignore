@@ -9,3 +9,6 @@ out/
 __pycache__/
 *.log
 .DS_Store
+
+# Local Netlify folder
+.netlify
