@@ -1,39 +1,41 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { fetchJournal, fetchJournalPost } from "@/lib/api";
+import { use } from "react";
+import { fetchJournalPost } from "@/lib/api";
 
-type Props = {
+export default function JournalPostPage({
+  params,
+}: {
   params: Promise<{ slug: string }>;
-};
+}) {
+  const { slug } = use(params);
+  const { data: post, isLoading, isError } = useQuery({
+    queryKey: ["journal", slug],
+    queryFn: () => fetchJournalPost(slug),
+  });
 
-export async function generateStaticParams() {
-  try {
-    const posts = await fetchJournal();
-    return posts.map((p) => ({ slug: p.slug }));
-  } catch {
-    return [];
+  if (isLoading) {
+    return (
+      <div className="container-page section-pad">
+        <p className="text-muted">Loading…</p>
+      </div>
+    );
   }
-}
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  try {
-    const post = await fetchJournalPost(slug);
-    return { title: post.title, description: post.body.slice(0, 140) };
-  } catch {
-    return { title: "Journal" };
-  }
-}
-
-export default async function JournalPostPage({ params }: Props) {
-  const { slug } = await params;
-  let post;
-  try {
-    post = await fetchJournalPost(slug);
-  } catch {
-    notFound();
+  if (isError || !post) {
+    return (
+      <div className="container-page section-pad">
+        <Link href="/journal" className="text-eyebrow hover:text-ink">
+          ← Journal
+        </Link>
+        <p className="mt-8 text-terracotta" role="alert">
+          Post not found.
+        </p>
+      </div>
+    );
   }
 
   return (

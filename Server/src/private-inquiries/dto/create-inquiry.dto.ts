@@ -1,3 +1,4 @@
+import { Type } from 'class-transformer';
 import {
   IsEmail,
   IsInt,
@@ -25,6 +26,7 @@ export class CreateInquiryDto {
   eventDate?: string;
 
   @IsOptional()
+  @Type(() => Number)
   @IsInt()
   @Min(1)
   guests?: number;

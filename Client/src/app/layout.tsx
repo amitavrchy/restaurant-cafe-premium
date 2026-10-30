@@ -4,6 +4,7 @@ import {
   DM_Sans,
   IBM_Plex_Mono,
 } from "next/font/google";
+import { Suspense } from "react";
 import { AppProviders } from "@/components/providers/AppProviders";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
@@ -51,15 +52,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${cormorant.variable} ${dmSans.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream text-ink">
-        <AppProviders>
-          <SiteHeader />
-          <main className="flex-1 pt-[var(--header-h)] pb-20 md:pb-0">
-            {children}
-          </main>
-          <SiteFooter />
-          <MobileReserveBar />
-          <ReservationDrawer />
-        </AppProviders>
+        <Suspense fallback={<div className="min-h-screen bg-cream" />}>
+          <AppProviders>
+            <SiteHeader />
+            <main className="flex-1 pt-[var(--header-h)] pb-20 md:pb-0">
+              {children}
+            </main>
+            <SiteFooter />
+            <MobileReserveBar />
+            <ReservationDrawer />
+          </AppProviders>
+        </Suspense>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

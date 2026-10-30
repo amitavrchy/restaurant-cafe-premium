@@ -1,3 +1,4 @@
+import { Type } from 'class-transformer';
 import {
   IsEmail,
   IsEnum,
@@ -18,6 +19,7 @@ export class CreateReservationDto {
   @Matches(/^\d{2}:\d{2}$/)
   time!: string;
 
+  @Type(() => Number)
   @IsInt()
   @Min(1)
   @Max(12)

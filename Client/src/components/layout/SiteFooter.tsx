@@ -57,7 +57,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-cream/15 py-5 text-center text-[var(--text-xs)] tracking-[0.12em] uppercase text-cream/50">
-        © {new Date().getFullYear()} Maison Verdant
+        © 2026 Maison Verdant
       </div>
     </footer>
   );

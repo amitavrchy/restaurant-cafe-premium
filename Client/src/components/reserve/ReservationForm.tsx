@@ -229,21 +229,7 @@ export function ReservationForm({ onSuccess, embedded }: Props) {
 
       {mutation.isError ? (
         <p className="text-[var(--text-sm)] text-terracotta" role="alert">
-          {(mutation.error as { response?: { data?: { message?: string | string[] } } })
-            ?.response?.data?.message
-            ? Array.isArray(
-                (mutation.error as { response: { data: { message: string | string[] } } })
-                  .response.data.message,
-              )
-              ? (
-                  mutation.error as { response: { data: { message: string[] } } }
-                ).response.data.message.join(", ")
-              : String(
-                  (
-                    mutation.error as { response: { data: { message: string } } }
-                  ).response.data.message,
-                )
-            : "Unable to complete reservation. Please try another slot."}
+          {getErrorMessage(mutation.error)}
         </p>
       ) : null}
 
@@ -256,6 +242,22 @@ export function ReservationForm({ onSuccess, embedded }: Props) {
       </button>
     </form>
   );
+}
+
+function getErrorMessage(error: unknown) {
+  if (
+    typeof error === "object" &&
+    error &&
+    "response" in error &&
+    typeof (error as { response?: unknown }).response === "object"
+  ) {
+    const message = (
+      error as { response?: { data?: { message?: string | string[] } } }
+    ).response?.data?.message;
+    if (Array.isArray(message)) return message.join(", ");
+    if (typeof message === "string") return message;
+  }
+  return "Unable to complete reservation. Please try another slot.";
 }
 
 function Field({

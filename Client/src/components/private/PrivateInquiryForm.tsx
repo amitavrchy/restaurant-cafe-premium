@@ -11,7 +11,7 @@ const schema = z.object({
   email: z.email(),
   phone: z.string().optional(),
   eventDate: z.string().optional(),
-  guests: z.coerce.number().int().min(1).optional(),
+  guests: z.string().optional(),
   message: z.string().min(10, "Tell us a little more about your event"),
 });
 
@@ -25,6 +25,7 @@ export function PrivateInquiryForm() {
       email: "",
       phone: "",
       eventDate: "",
+      guests: "",
       message: "",
     },
   });
@@ -48,14 +49,18 @@ export function PrivateInquiryForm() {
   return (
     <form
       className="space-y-5"
-      onSubmit={form.handleSubmit((values) =>
+      onSubmit={form.handleSubmit((values) => {
+        const guestsNum = values.guests ? Number(values.guests) : undefined;
         mutation.mutate({
-          ...values,
+          name: values.name,
+          email: values.email,
+          message: values.message,
           eventDate: values.eventDate || undefined,
-          guests: values.guests || undefined,
+          guests:
+            guestsNum && Number.isFinite(guestsNum) ? guestsNum : undefined,
           phone: values.phone || undefined,
-        }),
-      )}
+        });
+      })}
     >
       <Field label="Name" error={form.formState.errors.name?.message} {...form.register("name")} />
       <Field label="Email" type="email" error={form.formState.errors.email?.message} {...form.register("email")} />

@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import { fetchMenu } from "@/lib/api";
 import { DietaryFilters, type DietaryFilter } from "./DietaryFilters";
 import { MenuChapter } from "./MenuChapter";
+import { MenuGsapReveal } from "./MenuGsapReveal";
 import { cn } from "@/lib/utils";
 
 export function MenuPageClient() {
@@ -78,9 +79,11 @@ export function MenuPageClient() {
         ) : sections.length === 0 ? (
           <p className="py-16 text-muted">No dishes match this filter.</p>
         ) : (
-          sections.map((section) => (
-            <MenuChapter key={section.id} section={section} />
-          ))
+          <MenuGsapReveal>
+            {sections.map((section) => (
+              <MenuChapter key={section.id} section={section} />
+            ))}
+          </MenuGsapReveal>
         )}
       </div>
     </div>
