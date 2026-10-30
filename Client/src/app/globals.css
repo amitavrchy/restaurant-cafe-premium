@@ -162,12 +162,17 @@ img {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   border: 1px solid transparent;
+  border-radius: 999px;
   transition:
     background-color 350ms var(--ease-reserve),
     color 350ms var(--ease-reserve),
     border-color 350ms var(--ease-reserve),
     transform 350ms var(--ease-reserve);
   cursor: pointer;
+}
+
+button:not(.btn) {
+  border-radius: 0.65rem;
 }
 
 .btn:active {
@@ -202,13 +207,10 @@ img {
   background: var(--olive);
 }
 
-.container-page {
-  width: min(1120px, calc(100% - 2.5rem));
-  margin-inline: auto;
-}
-
+.container-page,
 .container-wide {
-  width: min(1280px, calc(100% - 2.5rem));
+  width: 90%;
+  max-width: 90%;
   margin-inline: auto;
 }
 
@@ -244,11 +246,84 @@ img {
   }
 }
 
-/* Day picker */
+/* Day picker — fit narrow reserve drawer without sideways crush */
 .rdp-root {
   --rdp-accent-color: var(--terracotta);
-  --rdp-accent-background-color: color-mix(in srgb, var(--terracotta) 14%, var(--cream));
+  --rdp-accent-background-color: color-mix(
+    in srgb,
+    var(--terracotta) 14%,
+    var(--cream)
+  );
+  --rdp-day-height: 2.35rem;
+  --rdp-day-width: 2.35rem;
+  --rdp-day_button-height: 2.2rem;
+  --rdp-day_button-width: 2.2rem;
+  --rdp-nav_button-height: 2rem;
+  --rdp-nav_button-width: 2rem;
+  width: 100%;
+  margin: 0 auto;
   font-size: var(--text-sm);
+}
+
+.rdp-months {
+  width: 100%;
+  max-width: 100%;
+  justify-content: center;
+}
+
+.rdp-month {
+  width: 100%;
+  max-width: 100%;
+}
+
+.rdp-month_caption {
+  justify-content: center;
+  padding-inline: 2.5rem;
+}
+
+.rdp-nav {
+  inset-inline: 0.15rem;
+}
+
+.rdp-month_grid {
+  width: 100%;
+  max-width: 100%;
+  table-layout: fixed;
+}
+
+.rdp-weekday,
+.rdp-day {
+  width: 14.28%;
+  text-align: center;
+}
+
+.rdp-day_button {
+  margin-inline: auto;
+  border-radius: 999px;
+}
+
+.reserve-calendar {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--cream) 70%, white);
+  padding: 0.85rem 0.65rem 1rem;
+}
+
+.menu-leader {
+  flex: 1;
+  min-width: 1.5rem;
+  margin-inline: 0.75rem;
+  border-bottom: 1px dotted color-mix(in srgb, var(--line) 80%, var(--muted));
+  transform: translateY(-0.35rem);
+}
+
+.menu-chapter-rule {
+  width: 3rem;
+  height: 1px;
+  background: var(--gold);
+  margin-top: 1rem;
 }
 
 .mobile-reserve-bar {

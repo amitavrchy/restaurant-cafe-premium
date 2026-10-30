@@ -26,7 +26,7 @@ export function ReservationDrawer() {
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-[60] bg-ink/45 data-[state=open]:animate-[fadeIn_350ms_var(--ease-reserve)]" />
         <Dialog.Content
-          className="fixed inset-y-0 right-0 z-[70] flex h-dvh w-full max-w-md flex-col overflow-hidden bg-cream shadow-2xl outline-none data-[state=open]:animate-[slideIn_350ms_var(--ease-reserve)]"
+          className="fixed inset-y-0 right-0 z-[70] flex h-dvh w-full max-w-lg flex-col overflow-hidden bg-cream shadow-2xl outline-none data-[state=open]:animate-[slideIn_350ms_var(--ease-reserve)]"
           aria-describedby={undefined}
           onWheel={stopPageScroll}
           onTouchMove={stopPageScroll}

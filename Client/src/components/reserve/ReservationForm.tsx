@@ -115,12 +115,13 @@ export function ReservationForm({ onSuccess, embedded }: Props) {
     <form onSubmit={onSubmit} className={cn("space-y-8", embedded && "max-w-xl")}>
       <div>
         <label className="text-eyebrow">Date</label>
-        <div className="mt-3 rounded-sm border border-line bg-cream p-2">
+        <div className="reserve-calendar mt-3">
           <DayPicker
             mode="single"
             selected={date}
             onSelect={setDate}
             disabled={{ before: new Date() }}
+            className="mx-auto w-full"
           />
         </div>
       </div>
@@ -135,7 +136,7 @@ export function ReservationForm({ onSuccess, embedded }: Props) {
               key={n}
               type="button"
               className={cn(
-                "h-11 w-11 border text-[var(--text-sm)] transition-colors",
+                "h-11 w-11 rounded-full border text-[var(--text-sm)] transition-colors",
                 partySize === n
                   ? "border-ink bg-ink text-cream"
                   : "border-line text-ink hover:border-ink",
@@ -168,7 +169,7 @@ export function ReservationForm({ onSuccess, embedded }: Props) {
                 key={slot.time}
                 type="button"
                 className={cn(
-                  "border px-2 py-3 text-[var(--text-sm)] transition-colors",
+                  "rounded-xl border px-2 py-3 text-[var(--text-sm)] transition-colors",
                   time === slot.time
                     ? "border-terracotta bg-terracotta text-cream"
                     : "border-line hover:border-ink",

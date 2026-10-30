@@ -175,7 +175,7 @@ export function AdminBoard() {
                     <div className="flex flex-wrap gap-2">
                       <button
                         type="button"
-                        className="border border-line px-2 py-1 hover:border-ink"
+                        className="rounded-full border border-line px-3 py-1 hover:border-ink"
                         onClick={() =>
                           statusMutation.mutate({ id: r.id, status: "CONFIRMED" })
                         }
@@ -184,7 +184,7 @@ export function AdminBoard() {
                       </button>
                       <button
                         type="button"
-                        className="border border-line px-2 py-1 hover:border-ink"
+                        className="rounded-full border border-line px-3 py-1 hover:border-ink"
                         onClick={() =>
                           statusMutation.mutate({ id: r.id, status: "NO_SHOW" })
                         }
@@ -193,7 +193,7 @@ export function AdminBoard() {
                       </button>
                       <button
                         type="button"
-                        className="border border-line px-2 py-1 hover:border-terracotta hover:text-terracotta"
+                        className="rounded-full border border-line px-3 py-1 hover:border-terracotta hover:text-terracotta"
                         onClick={() =>
                           statusMutation.mutate({ id: r.id, status: "CANCELLED" })
                         }

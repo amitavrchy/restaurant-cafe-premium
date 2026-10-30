@@ -28,7 +28,7 @@ export function DietaryFilters({ value, onChange }: Props) {
           key={opt.id}
           type="button"
           className={cn(
-            "min-w-11 border px-3 py-2 text-[var(--text-xs)] tracking-[0.14em] uppercase transition-colors",
+            "min-w-11 rounded-full border px-3.5 py-2 text-[var(--text-xs)] tracking-[0.14em] uppercase transition-colors",
             value === opt.id
               ? "border-ink bg-ink text-cream"
               : "border-line text-muted hover:border-ink hover:text-ink",
