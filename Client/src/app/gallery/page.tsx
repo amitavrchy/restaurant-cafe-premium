@@ -1,0 +1,71 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import { Reveal } from "@/components/motion/Reveal";
+
+export const metadata: Metadata = {
+  title: "Gallery",
+  description: "Interiors, plates, and evenings at Maison Verdant.",
+};
+
+const images = [
+  {
+    src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1400&q=80",
+    alt: "Tasting table",
+    span: "md:col-span-2 md:row-span-2",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1550963211-0af174c8cb1b?w=1000&q=80",
+    alt: "Dining room",
+    span: "",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1510817742738-060be7c38f3d?w=1000&q=80",
+    alt: "Wine pour",
+    span: "",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200&q=80",
+    alt: "Scallops",
+    span: "md:col-span-2",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1000&q=80",
+    alt: "Café espresso",
+    span: "",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=1000&q=80",
+    alt: "Garden plate",
+    span: "",
+  },
+];
+
+export default function GalleryPage() {
+  return (
+    <div className="container-wide section-pad">
+      <Reveal>
+        <p className="text-eyebrow">Gallery</p>
+        <h1 className="heading-display mt-4 max-w-3xl">
+          Light, linen, and the quiet of a finished plate
+        </h1>
+      </Reveal>
+      <div className="mt-14 grid auto-rows-[220px] grid-cols-1 gap-4 md:grid-cols-3 md:auto-rows-[240px]">
+        {images.map((img, i) => (
+          <Reveal
+            key={img.src}
+            delay={i * 0.05}
+            className={`dish-zoom relative overflow-hidden bg-line ${img.span}`}
+          >
+            <Image
+              src={img.src}
+              alt={img.alt}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </Reveal>
+        ))}
+      </div>
+    </div>
+  );
+}
