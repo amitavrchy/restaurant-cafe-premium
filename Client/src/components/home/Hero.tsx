@@ -11,10 +11,10 @@ export function Hero() {
   const reduced = useReducedMotion();
 
   return (
-    <section className="relative min-h-[calc(100svh-var(--header-h))] overflow-hidden">
+    <section className="relative min-h-[min(78svh,720px)] overflow-hidden md:min-h-[min(85svh,780px)]">
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=85"
+          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80"
           alt="Candlelit tasting table at Maison Verdant"
           fill
           priority
@@ -25,7 +25,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(26,22,18,0.45)_100%)]" />
       </div>
 
-      <div className="relative container-wide flex min-h-[calc(100svh-var(--header-h))] flex-col justify-end pb-16 pt-24 md:pb-24">
+      <div className="relative container-wide flex min-h-[min(78svh,720px)] flex-col justify-end pb-14 pt-20 md:min-h-[min(85svh,780px)] md:pb-20">
         <motion.div
           initial={reduced ? false : { opacity: 0, y: 36 }}
           animate={{ opacity: 1, y: 0 }}

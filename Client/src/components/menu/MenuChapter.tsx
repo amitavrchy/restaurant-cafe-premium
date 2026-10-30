@@ -59,7 +59,7 @@ export function MenuChapter({ section, index }: Props) {
         <div className="mt-10 space-y-12 md:space-y-14">
           {featured ? (
             <Reveal>
-              <div className="rounded-3xl border border-line/80 bg-cream/60 p-5 md:p-8">
+              <div className="rounded-2xl border border-line/80 bg-cream/60 p-4 md:p-6">
                 <DishCard item={featured} featured reverse={index % 2 === 1} />
               </div>
             </Reveal>

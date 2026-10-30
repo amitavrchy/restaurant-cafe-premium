@@ -12,28 +12,28 @@ const dishes = [
     note: "Yuzu kosho · finger lime",
     price: 28,
     image:
-      "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=1200&q=80",
+      "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=900&q=80",
   },
   {
     name: "Duck Breast à l’Orange",
     note: "Blood orange · endive",
     price: 48,
     image:
-      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=80",
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=80",
   },
   {
     name: "Wild Mushroom Risotto",
     note: "Parmesan veil · thyme",
     price: 36,
     image:
-      "https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=1200&q=80",
+      "https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=900&q=80",
   },
   {
     name: "Chocolate Ganache",
     note: "Olive oil ice cream",
     price: 16,
     image:
-      "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=1200&q=80",
+      "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=900&q=80",
   },
 ];
 
@@ -81,16 +81,16 @@ export function SignatureCarousel() {
               <Reveal
                 key={dish.name}
                 delay={i * 0.08}
-                className="min-w-[78%] sm:min-w-[45%] lg:min-w-[32%]"
+                className="min-w-[72%] sm:min-w-[42%] lg:min-w-[28%]"
               >
                 <article className="group">
-                  <div className="dish-zoom relative aspect-[4/5] bg-line">
+                  <div className="dish-zoom relative h-44 w-full overflow-hidden rounded-2xl bg-line sm:h-48 lg:h-52">
                     <Image
                       src={dish.image}
                       alt={dish.name}
                       fill
                       className="object-cover"
-                      sizes="(max-width: 768px) 80vw, 32vw"
+                      sizes="(max-width: 768px) 70vw, 28vw"
                     />
                   </div>
                   <div className="mt-4 flex items-start justify-between gap-4">

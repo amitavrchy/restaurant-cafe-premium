@@ -65,23 +65,13 @@ export function MenuPageClient() {
             Lunch through late wine — each chapter paced for the table. Marks: V
             vegetarian · VG vegan · GF gluten free.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <button
-              type="button"
-              className="btn btn-primary"
-              onClick={() => dispatch(openReserve())}
-            >
-              Reserve for dinner
-            </button>
-            <a
-              href={`${process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000"}/menu`}
-              className="btn btn-ghost"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Print / JSON
-            </a>
-          </div>
+          <button
+            type="button"
+            className="btn btn-primary mt-8"
+            onClick={() => dispatch(openReserve())}
+          >
+            Reserve for dinner
+          </button>
         </header>
 
         {menuQuery.isLoading ? (

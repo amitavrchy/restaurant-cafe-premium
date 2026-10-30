@@ -23,23 +23,23 @@ export function DishCard({ item, featured, reverse }: Props) {
   if (featured && item.imageUrl) {
     return (
       <article
-        className={`grid items-center gap-6 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-10 lg:grid-cols-[minmax(0,260px)_minmax(0,1fr)] ${
-          reverse ? "md:[&>*:first-child]:order-2" : ""
+        className={`flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-7 ${
+          reverse ? "sm:flex-row-reverse" : ""
         }`}
       >
-        <div className="dish-zoom relative mx-auto aspect-[4/5] w-full max-w-[240px] overflow-hidden rounded-2xl bg-line md:mx-0 md:max-w-none">
+        <div className="dish-zoom relative h-36 w-36 shrink-0 overflow-hidden rounded-2xl bg-line sm:h-40 sm:w-40">
           <Image
             src={item.imageUrl}
             alt={item.name}
             fill
             className="object-cover"
-            sizes="(max-width: 768px) 240px, 260px"
+            sizes="160px"
           />
         </div>
-        <div>
+        <div className="min-w-0 flex-1">
           <p className="text-eyebrow text-gold">Signature</p>
-          <div className="mt-3 flex items-end gap-3">
-            <h3 className="heading-lg text-[clamp(1.6rem,2.4vw,2.15rem)]">
+          <div className="mt-2 flex items-end gap-3">
+            <h3 className="heading-md min-w-0 text-[1.45rem] md:text-[1.65rem]">
               {item.name}
             </h3>
             <span className="menu-leader hidden sm:block" aria-hidden />
@@ -47,11 +47,11 @@ export function DishCard({ item, featured, reverse }: Props) {
               {formatPrice(item.price)}
             </p>
           </div>
-          <p className="mt-3 max-w-xl text-[var(--text-base)] leading-[var(--leading-body)] text-muted">
+          <p className="mt-2 max-w-xl text-[var(--text-base)] leading-[var(--leading-body)] text-muted">
             {item.description}
           </p>
           {tags.length > 0 ? (
-            <p className="mt-4 text-[var(--text-xs)] tracking-[0.16em] uppercase text-gold">
+            <p className="mt-3 text-[var(--text-xs)] tracking-[0.16em] uppercase text-gold">
               {tags.join(" · ")}
             </p>
           ) : null}
@@ -61,21 +61,21 @@ export function DishCard({ item, featured, reverse }: Props) {
   }
 
   return (
-    <article className="group flex gap-4 border-b border-line/80 pb-6 last:border-b-0 last:pb-0 md:gap-5">
+    <article className="group flex gap-3.5 border-b border-line/80 pb-5 last:border-b-0 last:pb-0 md:gap-4">
       {item.imageUrl ? (
-        <div className="dish-zoom relative h-[4.5rem] w-[4.5rem] shrink-0 overflow-hidden rounded-xl bg-line md:h-[5.25rem] md:w-[5.25rem]">
+        <div className="dish-zoom relative h-16 w-16 shrink-0 overflow-hidden rounded-xl bg-line md:h-[4.25rem] md:w-[4.25rem]">
           <Image
             src={item.imageUrl}
             alt=""
             fill
             className="object-cover"
-            sizes="84px"
+            sizes="68px"
           />
         </div>
       ) : null}
       <div className="min-w-0 flex-1">
         <div className="flex items-end gap-3">
-          <h3 className="heading-md min-w-0 text-[1.25rem] md:text-[1.35rem]">
+          <h3 className="heading-md min-w-0 text-[1.2rem] md:text-[1.3rem]">
             {item.name}
           </h3>
           <span className="menu-leader" aria-hidden />
@@ -83,7 +83,7 @@ export function DishCard({ item, featured, reverse }: Props) {
             {formatPrice(item.price)}
           </p>
         </div>
-        <p className="mt-2 text-[var(--text-sm)] leading-[var(--leading-body)] text-muted md:text-[var(--text-base)]">
+        <p className="mt-1.5 text-[var(--text-sm)] leading-[var(--leading-body)] text-muted">
           {item.description}
         </p>
         {tags.length > 0 ? (
