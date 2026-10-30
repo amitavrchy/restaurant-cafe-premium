@@ -21,7 +21,7 @@ export function SiteHeader() {
   const mobileOpen = useAppSelector((s) => s.ui.mobileNavOpen);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-line/60 bg-cream/85 backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-line/60 bg-cream/90 backdrop-blur-md">
       <div className="container-wide flex h-[var(--header-h)] items-center justify-between gap-4">
         <Link
           href="/"
@@ -31,21 +31,31 @@ export function SiteHeader() {
           Maison Verdant
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "rounded-full px-3 py-1.5 text-[var(--text-sm)] tracking-[0.06em] transition-colors",
-                pathname === link.href || pathname.startsWith(`${link.href}/`)
-                  ? "bg-olive text-white"
-                  : "text-olive/70 hover:bg-olive/10 hover:text-olive",
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
+        <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+          {links.map((link) => {
+            const active =
+              pathname === link.href || pathname.startsWith(`${link.href}/`);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "relative pb-1 text-[var(--text-sm)] tracking-[0.08em] transition-colors",
+                  active
+                    ? "text-terracotta"
+                    : "text-muted hover:text-ink",
+                )}
+              >
+                {link.label}
+                {active ? (
+                  <span
+                    aria-hidden
+                    className="absolute inset-x-0 -bottom-0.5 h-px bg-terracotta"
+                  />
+                ) : null}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -74,19 +84,26 @@ export function SiteHeader() {
             className="container-wide flex flex-col gap-1 py-4"
             aria-label="Mobile"
           >
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="py-3 text-[var(--text-lg)] font-display"
-                onClick={() => dispatch(closeMobileNav())}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {links.map((link) => {
+              const active =
+                pathname === link.href || pathname.startsWith(`${link.href}/`);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    "py-3 font-display text-[var(--text-lg)]",
+                    active ? "text-terracotta" : "text-ink",
+                  )}
+                  onClick={() => dispatch(closeMobileNav())}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             <Link
               href="/reservations"
-              className="py-3 text-[var(--text-lg)] font-display"
+              className="py-3 font-display text-[var(--text-lg)] text-ink"
               onClick={() => dispatch(closeMobileNav())}
             >
               Reservations

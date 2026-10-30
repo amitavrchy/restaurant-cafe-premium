@@ -32,10 +32,10 @@ export function Hero() {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-3xl text-cream"
         >
-          <p className="font-display text-[clamp(2.5rem,8vw,4.5rem)] leading-[0.95] text-cream">
+          <p className="font-display text-[clamp(2.5rem,8vw,4.5rem)] leading-[0.95] !text-cream">
             Maison Verdant
           </p>
-          <h1 className="mt-5 max-w-2xl font-display text-[clamp(1.5rem,3.5vw,2.35rem)] font-normal leading-snug text-cream/90">
+          <h1 className="mt-5 max-w-2xl font-display text-[clamp(1.5rem,3.5vw,2.35rem)] font-normal leading-snug !text-cream/90">
             An evening composed like a tasting menu.
           </h1>
           <p className="mt-5 max-w-md text-[var(--text-base)] leading-[var(--leading-body)] text-cream/75">

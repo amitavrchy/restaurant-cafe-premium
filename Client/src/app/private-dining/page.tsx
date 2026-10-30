@@ -38,10 +38,12 @@ export default function PrivateDiningPage() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-ink/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/45 to-ink/25" />
         <div className="relative container-wide flex min-h-[55vh] items-end pb-14">
           <div className="max-w-2xl text-cream">
-            <p className="text-eyebrow !text-cream/75">Private dining</p>
+            <p className="text-[var(--text-xs)] font-medium uppercase tracking-[0.18em] text-cream/80">
+              Private dining
+            </p>
             <h1 className="heading-display mt-4 text-cream">
               Celebrate without spectacle
             </h1>

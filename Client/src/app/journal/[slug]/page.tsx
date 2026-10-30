@@ -70,9 +70,7 @@ export default function JournalPostPage({
           <span className="breadcrumb-sep" aria-hidden>
             /
           </span>
-          <span className="text-crumb !bg-terracotta">
-            {post.title}
-          </span>
+          <span className="text-crumb text-crumb-current">{post.title}</span>
         </nav>
 
         <p className="text-eyebrow mt-10">From the house</p>
