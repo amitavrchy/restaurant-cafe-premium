@@ -12,28 +12,28 @@ const dishes = [
     note: "Yuzu kosho · finger lime",
     price: 28,
     image:
-      "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=900&q=80",
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1000&q=80",
   },
   {
     name: "Duck Breast à l’Orange",
     note: "Blood orange · endive",
     price: 48,
     image:
-      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=80",
+      "https://images.unsplash.com/photo-1600891964092-4316c288032e?w=1000&q=80",
   },
   {
     name: "Wild Mushroom Risotto",
     note: "Parmesan veil · thyme",
     price: 36,
     image:
-      "https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=900&q=80",
+      "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=1000&q=80",
   },
   {
     name: "Chocolate Ganache",
     note: "Olive oil ice cream",
     price: 16,
     image:
-      "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=900&q=80",
+      "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=1000&q=80",
   },
 ];
 
@@ -84,12 +84,12 @@ export function SignatureCarousel() {
                 className="min-w-[72%] sm:min-w-[42%] lg:min-w-[28%]"
               >
                 <article className="group">
-                  <div className="media-frame relative flex h-52 items-center justify-center overflow-hidden bg-[#EDE4D4] sm:h-56">
+                  <div className="media-frame dish-zoom relative aspect-[4/3] w-full">
                     <Image
                       src={dish.image}
                       alt={dish.name}
                       fill
-                      className="object-contain p-3 transition-transform duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
+                      className="object-cover object-center"
                       sizes="(max-width: 768px) 70vw, 28vw"
                     />
                   </div>

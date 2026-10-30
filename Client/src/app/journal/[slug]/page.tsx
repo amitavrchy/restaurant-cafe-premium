@@ -57,16 +57,20 @@ export default function JournalPostPage({
   return (
     <article className="pb-24">
       <div className="container-page section-pad pb-8 pt-14">
-        <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2">
+        <nav aria-label="Breadcrumb" className="breadcrumb-trail">
           <Link href="/" className="text-crumb">
             Home
           </Link>
-          <span className="text-[var(--text-xs)] text-line">/</span>
+          <span className="breadcrumb-sep" aria-hidden>
+            /
+          </span>
           <Link href="/journal" className="text-crumb">
             Journal
           </Link>
-          <span className="text-[var(--text-xs)] text-line">/</span>
-          <span className="text-[var(--text-xs)] tracking-[0.12em] uppercase text-olive/70">
+          <span className="breadcrumb-sep" aria-hidden>
+            /
+          </span>
+          <span className="text-crumb !bg-terracotta">
             {post.title}
           </span>
         </nav>

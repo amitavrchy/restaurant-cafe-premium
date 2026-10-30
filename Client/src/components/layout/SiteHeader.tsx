@@ -37,10 +37,10 @@ export function SiteHeader() {
               key={link.href}
               href={link.href}
               className={cn(
-                "text-[var(--text-sm)] tracking-[0.06em] transition-colors",
+                "rounded-full px-3 py-1.5 text-[var(--text-sm)] tracking-[0.06em] transition-colors",
                 pathname === link.href || pathname.startsWith(`${link.href}/`)
-                  ? "text-olive"
-                  : "text-olive/65 hover:text-olive",
+                  ? "bg-olive text-white"
+                  : "text-olive/70 hover:bg-olive/10 hover:text-olive",
               )}
             >
               {link.label}
